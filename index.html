@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paweł Gajger - QA & Future Data Scientist</title>
+    <style>
+        /* --- Zmienne kolorystyczne i Reset --- */
+        :root {
+            --bg-dark: #0f172a;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            /* Cyan */
+            --accent-secondary: #818cf8;
+            /* Indigo */
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            /* Półprzezroczyste tło */
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Ukrywa poziomy suwak przy animacjach */
+        }
+
+        /* --- Animowane tło (Aurora) --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(129, 140, 248, 0.08) 0%, transparent 50%);
+            z-index: -1;
+            animation: aurora 20s infinite linear;
+        }
+
+        @keyframes aurora {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 95vh;
+            gap: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: textShimmer 3s infinite alternate;
+        }
+
+        @keyframes textShimmer {
+            0% {
+                filter: drop-shadow(0 0 0px rgba(56, 189, 248, 0));
+            }
+
+            100% {
+                filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.3));
+            }
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 35px;
+            background: var(--accent-gradient);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Efekt błysku na przycisku */
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .hero-img-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            flex-shrink: 0;
+            animation: float 6s ease-in-out infinite;
+            /* Lewitacja */
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-img-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.4;
+            filter: blur(20px);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+        }
+
+        /* --- Glassmorphism Cards --- */
+        .skill-card,
+        .timeline-item-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            /* Efekt szkła */
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* --- Timeline (Projekty) --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 25px;
+            /* Środek kulki */
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent);
+            z-index: 2;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 40px;
+            bottom: -60px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            margin-top: 50px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px var(--accent);
+        }
+
+        /* --- Animacje przy scrollowaniu (JS Trigger) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Responsywność --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+                padding-top: 40px;
+            }
+
+            .hero-img-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                border: none;
+                border-bottom: 3px solid var(--accent);
+                display: inline-block;
+                padding-bottom: 10px;
+            }
+
+            .timeline-item {
+                padding-left: 30px;
+            }
+
+            .timeline-item::before {
+                left: -4px;
+                width: 12px;
+                height: 12px;
+            }
+
+            .timeline-item::after {
+                left: 1px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="hero">
+            <div class="hero-text reveal">
+                <p
+                    style="color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 10px;">
+                    Cześć, nazywam się</p>
+                <h1>Paweł Gajger</h1>
+                <p>
+                    <strong>Senior QA Analyst | Future Data Scientist</strong><br>
+                    Ekspert rozwiązań VOD, OTT i DAI z 10-letnim stażem w pełnym cyklu SDLC.
+                    Łączę inżynierię jakości z Data Science, wykorzystując AI i Vibe Coding, by optymalizować procesy i
+                    redefiniować standardy w IT.
+                </p>
+                <a href="mailto:pawelgajger@gmail.com" class="cta-button">Skontaktuj się ze mną</a>
+            </div>
+
+            <div class="hero-img-container reveal">
+                <img src="pawel.png" alt="Paweł Gajger" class="hero-img">
+            </div>
+        </header>
+
+        <section id="about" class="reveal">
+            <h2>Quality Driven, AI Powered</h2>
+            <div
+                style="background: var(--glass-bg); padding: 30px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <p style="color: var(--text-muted); margin-bottom: 20px;">
+                    Od blisko 8 lat jestem związany z <strong>TVN Warner Bros. Discovery</strong>, gdzie dbam o jakość
+                    serwisów streamingowych takich jak Player.pl i MAX.
+                    Posiadam szeroką wiedzę w zakresie testów manualnych, automatyzacji oraz technologii Dynamic Ad
+                    Insertion (DAI).
+                </p>
+                <p style="color: var(--text-muted);">
+                    Wierzę, że przyszłość IT należy do połączenia solidnej inżynierii z AI. Dlatego aktualnie studiuję
+                    <strong>Data Science</strong> i rozwijam się w Pythonie oraz analizie danych, aby tworzyć nową
+                    jakość w oprogramowaniu.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="reveal">
+            <h2>Moje Kompetencje</h2>
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <h3>🔍 QA Expertise</h3>
+                    <ul class="skill-list">
+                        <li>Testy serwisów VOD & Streaming</li>
+                        <li>Specjalizacja: <strong>DAI</strong> (Dynamic Ad Insertion)</li>
+                        <li>Mobile: Android / iOS / PWA</li>
+                        <li>SmartTV: Tizen, WebOS, AndroidTV</li>
+                        <li>API Testing (Postman)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🤖 AI & Data Science</h3>
+                    <ul class="skill-list">
+                        <li>Studia: Data Science z AI (WSB Merito)</li>
+                        <li>Python (Analiza danych)</li>
+                        <li>Vibe Coding (AI-Assisted Dev)</li>
+                        <li>SQL & Snowflake</li>
+                        <li>Kibana & Analiza logów</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>💻 Web & Tools</h3>
+                    <ul class="skill-list">
+                        <li>Tworzenie stron WWW</li>
+                        <li>HTML / CSS / JavaScript</li>
+                        <li>JIRA / Confluence</li>
+                        <li>Charles Proxy / ProxyMan</li>
+                        <li>Git / DevTools</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="experience" class="reveal">
+            <h2>Wybrane Projekty</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2024 – obecnie</span>
+                    <div class="timeline-item-content">
+                        <h3>Wdrożenia DAI: MAX & Operatorzy</h3>
+                        <p style="color: var(--text-muted);">
+                            Implementacja Dynamic Ad Insertion na platformie MAX w Polsce. <br><br>
+                            Współpraca z <strong>WP, Canal+, Play</strong> i innymi operatorami nad wdrożeniem DAI na
+                            kanałach TVN oraz ich autorskich platformach u tychże operatorów.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2019 – obecnie</span>
+                    <div class="timeline-item-content">
+                        <h3>Rozwój Player.pl</h3>
+                        <p style="color: var(--text-muted);">Kompleksowe testy (Web, Mobile, SmartTV) oraz migracja
+                            serwisu z on-premise do chmury AWS.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2019</span>
+                    <div class="timeline-item-content">
+                        <h3>TVN24GO</h3>
+                        <p style="color: var(--text-muted);">Wdrożenie, utrzymanie i rozwój serwisu informacyjnego
+                            wideo.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2017 – 2019</span>
+                    <div class="timeline-item-content">
+                        <h3>Systemy Sprzedażowe (Polkomtel)</h3>
+                        <p style="color: var(--text-muted);">Testowanie systemów CRM, Legacy oraz współpraca przy
+                            systemie Wyrocznia 2.0.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2025 Paweł Gajger. Stworzone w duchu Vibe Coding.</p>
+        <p>
+            <a href="https://linkedin.com/in/pawelgajger" target="_blank">LinkedIn</a> |
+            <a href="mailto:pawelgajger@gmail.com">pawelgajger@gmail.com</a>
+        </p>
+    </footer>
+
+    <script>
+        // Prosty mechanizm "Intersection Observer" - wykrywa czy element jest widoczny
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 }); // Uruchom gdy 10% elementu jest widoczne
+
+        // Znajdź wszystkie elementy z klasą .reveal i zacznij je obserwować
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+
+</html>
