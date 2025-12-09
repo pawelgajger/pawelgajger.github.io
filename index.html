@@ -33,7 +33,6 @@
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
-            /* Ukrywa poziomy suwak przy animacjach */
         }
 
         /* --- Animowane tło (Aurora) --- */
@@ -159,7 +158,6 @@
             box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
         }
 
-        /* Efekt błysku na przycisku */
         .cta-button::after {
             content: '';
             position: absolute;
@@ -181,7 +179,6 @@
             height: 350px;
             flex-shrink: 0;
             animation: float 6s ease-in-out infinite;
-            /* Lewitacja */
         }
 
         @keyframes float {
@@ -203,7 +200,8 @@
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.1);
+            /* Ramka usunięta, aby zdjęcie bez tła wyglądało naturalnie w poświacie */
+            /* border: 4px solid rgba(255,255,255,0.1); */
             position: relative;
             z-index: 2;
         }
@@ -245,7 +243,6 @@
         .timeline-item-content {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
-            /* Efekt szkła */
             -webkit-backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: 20px;
@@ -305,7 +302,6 @@
             position: absolute;
             left: 0;
             top: 25px;
-            /* Środek kulki */
             width: 16px;
             height: 16px;
             background: var(--accent);
@@ -359,7 +355,14 @@
             text-shadow: 0 0 10px var(--accent);
         }
 
-        /* --- Animacje przy scrollowaniu (JS Trigger) --- */
+        .brand-link {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+        /* --- Animacje przy scrollowaniu --- */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
@@ -544,23 +547,27 @@
 
     <footer>
         <p>© 2025 Paweł Gajger. Stworzone w duchu Vibe Coding.</p>
+
         <p>
-            <a href="linkedin.com/in/paweł-gajger-0b94a6161" target="_blank">LinkedIn</a> |
+            <a href="https://codewavesolutions.pro" target="_blank" class="brand-link">codewavesolutions.pro</a>
+        </p>
+
+        <p>
+            <a href="https://www.linkedin.com/in/pawe%C5%82-gajger-0b94a6161" target="_blank"
+                rel="noopener noreferrer">LinkedIn</a> |
             <a href="mailto:pawelgajger@gmail.com">pawelgajger@gmail.com</a>
         </p>
     </footer>
 
     <script>
-        // Prosty mechanizm "Intersection Observer" - wykrywa czy element jest widoczny
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 }); // Uruchom gdy 10% elementu jest widoczne
+        }, { threshold: 0.1 });
 
-        // Znajdź wszystkie elementy z klasą .reveal i zacznij je obserwować
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
