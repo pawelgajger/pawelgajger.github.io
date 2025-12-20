@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paweł Gajger - Senior QA & Data Quality Engineer</title>
     
-    <meta name="description" content="Paweł Gajger - Senior QA & Data Quality Engineer. Ekspert VOD, OTT i AdTech. Automatyzacja testów i weryfikacja danych z użyciem Python, SQL i AI.">
+    <meta name="description" content="Paweł Gajger - Senior QA & Data Quality Engineer. Ekspert VOD, OTT i AdTech. Automatyzacja testów API, weryfikacja AdPod i danych z użyciem Python i SQL.">
     <meta property="og:title" content="Paweł Gajger - Senior QA & Data Quality Engineer">
-    <meta property="og:description" content="Ekspert od jakości danych w systemach streamingowych. Sprawdź moje portfolio.">
+    <meta property="og:description" content="Ekspert od jakości wideo i danych w systemach streamingowych (Player, Max, TVN24). Sprawdź moje portfolio.">
     <meta property="og:type" content="website">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X66L6RDGR"></script>
@@ -74,12 +74,14 @@
 
         /* --- Layout --- */
         .container {
-            max-width: 1200px;
+            max-width: 1200px; /* Zwiększona szerokość dla lepszego wyglądu na desktopie */
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 10;
         }
 
-        section { padding: 100px 0; }
+        section { padding: 100px 0; /* Większy odstęp między sekcjami */ }
 
         h1, h2, h3 { color: #fff; margin-bottom: 15px; }
 
@@ -101,25 +103,20 @@
         }
 
         .hero-text h1 {
-            font-size: 4.5rem;
+            font-size: 4.5rem; /* Powiększone nazwisko */
             line-height: 1.1;
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
-            animation: textShimmer 3s infinite alternate;
-        }
-
-        @keyframes textShimmer {
-            0% { filter: drop-shadow(0 0 0px rgba(56, 189, 248, 0)); }
-            100% { filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.3)); }
+            /* Usunięta animacja shimmer dla czytelności przy dużym rozmiarze */
         }
 
         .hero-text p {
             font-size: 1.2rem;
             color: var(--text-muted);
             margin-bottom: 30px;
-            max-width: 600px;
+            max-width: 650px;
         }
 
         .cta-button {
@@ -156,8 +153,8 @@
 
         .hero-img-container {
             position: relative;
-            width: 350px;
-            height: 350px;
+            width: 400px; /* Nieco większe zdjęcie */
+            height: 400px;
             flex-shrink: 0;
             animation: float 6s ease-in-out infinite;
         }
@@ -211,8 +208,8 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Szersze karty */
+            gap: 30px;
         }
 
         .skill-card:hover {
@@ -245,7 +242,7 @@
         /* --- Timeline (Projekty) --- */
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .timeline-item {
@@ -310,16 +307,11 @@
             text-shadow: 0 0 10px var(--accent);
         }
 
-        /* --- Animacje przy scrollowaniu --- */
-.reveal {
-    opacity: 1; /* Zmieniamy na 1, żeby wymusić widoczność */
-    transform: translateY(0); /* Resetujemy przesunięcie */
-    transition: all 0.8s ease-out;
-}
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        /* --- Widoczność (Fix) --- */
+        .reveal {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
         }
 
         /* --- Responsywność --- */
@@ -331,7 +323,7 @@
                 padding-top: 40px;
             }
             .hero-img-container { width: 250px; height: 250px; }
-            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text h1 { font-size: 2.8rem; }
             h2 { border: none; border-bottom: 3px solid var(--accent); padding-bottom: 10px; }
             .timeline-item { padding-left: 30px; }
             .timeline-item::before { left: -4px; width: 12px; height: 12px; }
@@ -351,10 +343,11 @@
                 <h1>Paweł Gajger</h1>
                 <p>
                     <strong>Senior QA & Data Quality Engineer</strong><br>
-                    10 lat doświadczenia w zapewnianiu jakości systemów VOD, OTT i AdTech. 
-                    Wykorzystuję Python, SQL i AI do automatyzacji procesów, weryfikacji danych i budowania niezawodnych produktów cyfrowych.
+                    10 lat doświadczenia w branży VOD/OTT. Łączę inżynierię testów (Postman, UX/UI) z analizą danych, zapewniając najwyższą jakość reklam i treści wideo.
                 </p>
-                <a href="mailto:pawelgajger@gmail.com" class="cta-button">Skontaktuj się ze mną</a>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="mailto:pawelgajger@gmail.com" class="cta-button">Skontaktuj się ze mną</a>
+                </div>
             </div>
 
             <div class="hero-img-container reveal">
@@ -363,13 +356,13 @@
         </header>
 
         <section id="about" class="reveal">
-            <h2>Data-Driven Quality</h2>
-            <div style="background: var(--glass-bg); padding: 30px; border-radius: 20px; border: 1px solid var(--glass-border);">
-                <p style="color: var(--text-muted); margin-bottom: 20px;">
-                    Jako ekspert związany z <strong>TVN Warner Bros. Discovery</strong>, specjalizuję się w obszarach, gdzie jakość danych spotyka się z doświadczeniem użytkownika. Moja domena to weryfikacja poprawności <strong>logów reklamowych (DAI)</strong>, telemetrii wideo oraz integracji systemów Big Data w środowisku chmurowym.
+            <h2>Quality & Experience</h2>
+            <div style="background: var(--glass-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem;">
+                    W <strong>TVN Warner Bros. Discovery</strong> odpowiadam za kompleksową jakość ekosystemu reklamowego w serwisach <strong>Player, TVN24 i Max</strong>.
                 </p>
-                <p style="color: var(--text-muted);">
-                    Nie tylko testuję aplikacje – <strong>audytuję dane</strong>, które one generują. Łączę inżynierskie podejście QA z narzędziami Data Science (Python, Pandas, SQL), aby wykrywać anomalie tam, gdzie ludzkie oko zawodzi.
+                <p style="color: var(--text-muted); font-size: 1.1rem;">
+                    Moja rola to most między technologią a doświadczeniem widza. Z jednej strony <strong>automatyzuję testy API</strong> (Postman) i weryfikuję kluczową logikę <strong>AdPod</strong> (mechanizm podmiany reklam), a z drugiej dbam o nieskazitelny <strong>UX/UI</strong> aplikacji. Całość domykam weryfikacją danych – sprawdzam <strong>logi i oskryptowanie</strong> telemetryczne, upewniając się, że analityka precyzyjnie odzwierciedla zachowania użytkowników.
                 </p>
             </div>
         </section>
@@ -379,12 +372,111 @@
             <div class="skills-grid">
 
                 <div class="skill-card">
-                    <h3>🔍 QA Expertise</h3>
+                    <h3>🔍 QA & Automation</h3>
                     <ul class="skill-list">
-                        <li>Testy serwisów VOD & Streaming</li>
-                        <li>Specjalizacja: <strong>DAI</strong> (Dynamic Ad Insertion)</li>
-                        <li>Mobile: Android / iOS / PWA</li>
-                        <li>SmartTV: Tizen, WebOS, AndroidTV</li>
-                        <li>API Testing (Postman, REST Ass
+                        <li><strong>API Testing:</strong> Postman (Automatyzacja), REST Assured</li>
+                        <li><strong>AdTech:</strong> Testy AdPod, VAST/VMAP, DAI</li>
+                        <li><strong>UX/UI Testing:</strong> Weryfikacja wizualna aplikacji VOD</li>
+                        <li>Mobile & SmartTV (Tizen, WebOS, AndroidTV)</li>
+                        <li>Charles Proxy / ProxyMan</li>
+                    </ul>
+                </div>
 
+                <div class="skill-card">
+                    <h3>📊 Data & Scripts</h3>
+                    <ul class="skill-list">
+                        <li><strong>Data Quality:</strong> Weryfikacja logów i telemetrii</li>
+                        <li>Analiza oskryptowania analitycznego</li>
+                        <li><strong>Python</strong> (Pandas, PyTest) & SQL</li>
+                        <li>Snowflake & Kibana (ELK)</li>
+                        <li>AI-Augmented Testing</li>
+                    </ul>
+                </div>
 
+                <div class="skill-card">
+                    <h3>💻 Tools & Workflow</h3>
+                    <ul class="skill-list">
+                        <li>JIRA / Confluence / Xray</li>
+                        <li>Git & CI/CD Basics</li>
+                        <li>Chrome DevTools (Network Analysis)</li>
+                        <li>HTML / CSS / JavaScript</li>
+                        <li>Agile / Scrum</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="experience" class="reveal">
+            <h2>Doświadczenie i Projekty</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2024 – obecnie</span>
+                    <div class="timeline-item-content">
+                        <h3>Data Quality w AdTech (MAX & Operatorzy)</h3>
+                        <p style="color: var(--text-muted);">
+                            Nadzór nad poprawnością implementacji <strong>Dynamic Ad Insertion</strong>. <br><br>
+                            Automatyczna weryfikacja strumieni danych reklamowych i integracji z platformami partnerów (WP, Canal+, Play). Analiza zgodności metadanych wideo ze standardami rynkowymi.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2024</span>
+                    <div class="timeline-item-content">
+                        <h3>Wdrożenie serwisu MAX - Data Validation</h3>
+                        <p style="color: var(--text-muted);">
+                            Kompleksowe testy reklamowe i weryfikacja migracji danych przy wdrożeniu globalnej platformy MAX na polski rynek.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2019 – obecnie</span>
+                    <div class="timeline-item-content">
+                        <h3>Rozwój Player.pl & Cloud Migration</h3>
+                        <p style="color: var(--text-muted);">
+                            Kompleksowe testy (Web, Mobile, SmartTV) oraz nadzór nad spójnością danych podczas migracji serwisu do chmury AWS. Implementacja i weryfikacja DAI w serwisach streamingowych grupy TVN.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2019</span>
+                    <div class="timeline-item-content">
+                        <h3>TVN24GO</h3>
+                        <p style="color: var(--text-muted);">
+                            Wdrożenie, utrzymanie i rozwój serwisu informacyjnego wideo.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2016 – 2019</span>
+                    <div class="timeline-item-content">
+                        <h3>Systemy Sprzedażowe (Polkomtel)</h3>
+                        <p style="color: var(--text-muted);">
+                            Testowanie systemów CRM, Legacy oraz współpraca przy systemie Wyrocznia 2.0.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2025 Paweł Gajger. Senior Quality Engineer.</p>
+
+        <p>
+            <a href="https://www.linkedin.com/in/pawe%C5%82-gajger-0b94a6161" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+            <a href="mailto:pawelgajger@gmail.com">pawelgajger@gmail.com</a>
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
