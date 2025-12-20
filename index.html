@@ -311,11 +311,11 @@
         }
 
         /* --- Animacje przy scrollowaniu --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease-out;
-        }
+.reveal {
+    opacity: 1; /* Zmieniamy na 1, żeby wymusić widoczność */
+    transform: translateY(0); /* Resetujemy przesunięcie */
+    transition: all 0.8s ease-out;
+}
 
         .reveal.active {
             opacity: 1;
@@ -386,3 +386,4 @@
                         <li>Mobile: Android / iOS / PWA</li>
                         <li>SmartTV: Tizen, WebOS, AndroidTV</li>
                         <li>API Testing (Postman, REST Ass
+
