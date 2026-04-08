@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Paweł Gajger - Senior QA Analyst</title>
+    <title>CV - Paweł Gajger</title>
     <style>
         :root {
             --bg: #0f172a;
@@ -15,49 +14,45 @@
             --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
         body {
             background: #334155;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             color: var(--text);
-            display: flex;
-            justify-content: center;
-            padding: 40px 0;
-            margin: 0;
+            line-height: 1.35;
         }
 
         .cv-page {
             background: var(--bg);
             width: 210mm;
-            min-height: 297mm;
-            padding: 15mm;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            height: 297mm;
+            padding: 10mm 12mm;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 40px;
-            position: relative;
+            grid-template-columns: 215px 1fr;
+            gap: 25px;
             overflow: hidden;
         }
 
         /* Sidebar */
         .sidebar {
-            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border-right: 1px solid var(--card);
+            padding-right: 15px;
         }
 
         .photo-container {
-            width: 180px;
-            height: 180px;
-            margin-bottom: 25px;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto;
             position: relative;
-        }
-
-        .photo-container::before {
-            content: '';
-            position: absolute;
-            inset: -5px;
-            background: var(--gradient);
-            border-radius: 50%;
-            opacity: 0.3;
-            filter: blur(10px);
         }
 
         .photo-img {
@@ -65,184 +60,165 @@
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            border: 3px solid var(--card);
-            position: relative;
+            border: 2px solid var(--accent);
         }
 
         h1 {
-            font-size: 28px;
-            margin: 0;
+            font-size: 22px;
+            text-align: center;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .tagline {
+            font-size: 11px;
+            text-align: center;
             color: var(--accent);
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
+            font-weight: bold;
         }
 
         h3 {
-            border-left: 4px solid var(--accent);
-            padding-left: 12px;
-            margin-top: 35px;
-            font-size: 15px;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .skill-list {
-            list-style: none;
-            padding: 0;
-            font-size: 13px;
-        }
-
-        .skill-list li {
-            margin-bottom: 10px;
-            color: var(--muted);
-            display: flex;
-            align-items: center;
-        }
-
-        .skill-list li strong {
-            color: var(--text);
-            margin-right: 5px;
-        }
-
-        .skill-list li::before {
-            content: '▹';
             color: var(--accent);
-            margin-right: 8px;
+            border-bottom: 1px solid var(--card);
+            padding-bottom: 2px;
+            margin-top: 8px;
+        }
+
+        .list {
+            list-style: none;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .list li {
+            margin-bottom: 3px;
+            color: var(--muted);
+        }
+
+        .list li strong {
+            color: var(--text);
         }
 
         /* Main Content */
-        .main-content {
-            z-index: 2;
-        }
-
         h2 {
-            font-size: 20px;
+            font-size: 14px;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
             border-bottom: 1px solid var(--card);
-            padding-bottom: 10px;
-            margin-top: 40px;
+            padding-bottom: 3px;
+            margin: 12px 0 6px 0;
         }
 
         h2:first-of-type {
             margin-top: 0;
         }
 
-        .summary-text {
-            font-size: 14px;
-            line-height: 1.7;
+        .summary {
+            font-size: 11.5px;
             color: var(--muted);
             text-align: justify;
+            margin-bottom: 10px;
         }
 
-        .summary-text strong {
-            color: var(--text);
-        }
-
-        .experience-item {
-            margin-bottom: 35px;
+        .exp-item {
+            margin-bottom: 10px;
         }
 
         .exp-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 5px;
+            align-items: baseline;
         }
 
         .exp-title {
-            font-size: 16px;
+            font-size: 13px;
             font-weight: bold;
             color: #fff;
         }
 
         .exp-date {
-            font-size: 12px;
+            font-size: 10.5px;
             color: var(--accent);
             font-weight: bold;
         }
 
         .exp-company {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
-            color: var(--text);
-            margin-bottom: 10px;
             display: block;
+            margin-bottom: 3px;
         }
 
         .exp-bullet {
             list-style: none;
-            padding: 0;
+            padding-left: 10px;
         }
 
         .exp-bullet li {
-            font-size: 13px;
+            font-size: 11px;
             color: var(--muted);
-            margin-bottom: 6px;
-            padding-left: 15px;
+            margin-bottom: 2px;
             position: relative;
         }
 
-        .exp-bullet li::after {
+        .exp-bullet li::before {
             content: '•';
             position: absolute;
-            left: 0;
+            left: -10px;
             color: var(--accent);
         }
 
         .cert-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 6px;
         }
 
         .cert-item {
             background: var(--card);
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 12px;
-            border: 1px solid var(--glass-border);
+            padding: 6px;
+            border-radius: 4px;
+            font-size: 10.5px;
         }
 
         .cert-item strong {
-            display: block;
             color: var(--accent);
+            display: block;
         }
 
-        .ai-label {
-            background: var(--gradient);
+        .edu-item {
+            font-size: 11.5px;
+            color: var(--muted);
+        }
+
+        .edu-item strong {
             color: #fff;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 9px;
-            vertical-align: middle;
-            margin-left: 5px;
+        }
+
+        .footer-rodo {
+            font-size: 8.5px;
+            color: var(--muted);
+            margin-top: auto;
+            padding-top: 6px;
+            border-top: 1px solid var(--card);
         }
 
         @media print {
             body {
-                background: white;
-                padding: 0;
+                background: none;
             }
 
             .cv-page {
                 box-shadow: none;
-                width: 100%;
-                height: 100%;
-                padding: 10mm;
+                margin: 0;
             }
 
             * {
                 -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
@@ -250,104 +226,118 @@
 
 <body>
     <div class="cv-page">
-        <div class="sidebar">
-            <div class="photo-container">
-                <img src="pawel.png" alt="Paweł Gajger" class="photo-img">
+        <aside class="sidebar">
+            <div class="photo-container"><img src="pawel.png" class="photo-img"></div>
+            <div>
+                <h1>Paweł Gajger</h1>
+                <p class="tagline">Senior QA | AdTech Expert</p>
             </div>
-            <h1>Paweł Gajger</h1>
-            <div class="tagline">Senior QA Analyst | AdTech Expert</div>
 
             <h3>Kontakt</h3>
-            <ul class="skill-list">
+            <ul class="list">
                 <li>📞 501 169 449</li>
                 <li>✉️ pawelgajger@gmail.com</li>
                 <li>📍 Warszawa, PL</li>
                 <li>🔗 linkedin.com/in/paweł-gajger</li>
             </ul>
 
-            <h3>Ekspertyza Tech</h3>
-            <ul class="skill-list">
-                <li>📺 <strong>SmartTV:</strong> Tizen, WebOS, AndroidTV, AppleTV, Chromecast</li>
-                <li>📊 <strong>AdTech:</strong> DAI, VAST/VMAP, SDK</li>
-                <li>📱 <strong>Mobile:</strong> Android, iOS (SauceLabs)</li>
-                <li>🛠️ <strong>Tools:</strong> Playwright, Postman, Charles, ProxyMan, Snowflake, Kibana</li>
+            <h3>Ekspertyza</h3>
+            <ul class="list">
+                <li>📺 <strong>SmartTV:</strong> Tizen, WebOS, AndroidTV</li>
+                <li>📊 <strong>AdTech:</strong> DAI, SDK, VAST/VMAP</li>
+                <li>🛠️ <strong>Tools:</strong> Playwright, Postman, Charles</li>
+                <li>⚙️ <strong>Backend:</strong> SQL, Snowflake, Kibana</li>
+                <li>📱 <strong>Mobile:</strong> Android, iOS, PWA</li>
             </ul>
 
-            <h3>AI Skills <span class="ai-label">2026</span></h3>
-            <ul class="skill-list">
+            <h3>AI Integration</h3>
+            <ul class="list">
                 <li>🤖 <strong>Google AI 3.0</strong></li>
                 <li>🦾 <strong>Narzędziownik AI</strong></li>
                 <li>☁️ <strong>Azure AI Fundamentals</strong></li>
             </ul>
-        </div>
 
-        <div class="main-content">
-            <h2>Podsumowanie</h2>
-            <p class="summary-text">
-                Doświadczony <strong>Analityk QA z 10-letnim stażem</strong> w branży IT, specjalizujący się w sektorze
-                mediów i telekomunikacji. Ekspert w niszowym obszarze <strong>AdTech</strong> oraz technologii
-                <strong>Dynamic Ad Insertion (DAI)</strong>. Posiadam bogate doświadczenie w certyfikacji aplikacji
-                wideo na systemy <strong>SmartTV</strong> oraz urządzenia mobilne. Aktywnie wdrażam narzędzia
-                Generatywnej AI do optymalizacji procesów testowych, uczestnicząc w elitarnych programach rozwojowych
-                Google.
-            </p>
+            <h3>Języki</h3>
+            <ul class="list">
+                <li>🇬🇧 Angielski: <strong>B2+ (Zaawansowany)</strong></li>
+            </ul>
+        </aside>
 
-            <h2>Doświadczenie</h2>
-            <div class="experience-item">
-                <div class="exp-header">
-                    <span class="exp-title">Senior QA Analyst</span>
-                    <span class="exp-date">2019 - OBECNIE</span>
-                </div>
-                <span class="exp-company">TVN | Warner Bros. Discovery</span>
-                <ul class="exp-bullet">
-                    <li>Zapewnianie jakości platform <strong>Player.pl oraz MAX</strong> na polskim rynku.</li>
-                    <li>Testy integracyjne <strong>AdTech SDK</strong> oraz weryfikacja implementacji DAI u operatorów.
-                    </li>
-                    <li>Certyfikacja i testy aplikacji na szeroką gamę systemów <strong>SmartTV</strong> oraz Mobile.
-                    </li>
-                    <li>Analiza Big Data i logów systemowych przy użyciu <strong>Snowflake, Kibana i SQL</strong>.</li>
-                    <li>Automatyzacja testów API w środowisku Postman z wykorzystaniem JavaScript.</li>
-                </ul>
-            </div>
+        <main class="main-content">
+            <section>
+                <h2>Podsumowanie Zawodowe</h2>
+                <p class="summary">
+                    Analityk QA z <strong>10-letnim stażem</strong> w branży IT. Ekspert w zapewnianiu jakości systemów
+                    wideo oraz technologii <strong>AdTech & DAI</strong> w Warner Bros. Discovery. Specjalizuję się w
+                    certyfikacji aplikacji na platformy SmartTV i Mobile. Aktywnie wdrażam narzędzia <strong>Generative
+                        AI</strong> w celu optymalizacji procesów testowych i projektowania scenariuszy.
+                </p>
+            </section>
 
-            <div class="experience-item">
-                <div class="exp-header">
-                    <span class="exp-title">QA Analyst</span>
-                    <span class="exp-date">2017 - 2019</span>
+            <section>
+                <h2>Doświadczenie Zawodowe</h2>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">Senior QA Analyst</span>
+                        <span class="exp-date">2019 - OBECNIE</span>
+                    </div>
+                    <span class="exp-company">TVN | Warner Bros. Discovery</span>
+                    <ul class="exp-bullet">
+                        <li>Zapewnianie jakości platform streamingowych <strong>Player.pl i MAX</strong>.</li>
+                        <li>Testy integracyjne <strong>AdTech SDK</strong> i implementacji technologii
+                            <strong>DAI</strong>.</li>
+                        <li>Certyfikacja aplikacji na urządzenia <strong>SmartTV</strong> (Tizen, WebOS, AndroidTV,
+                            AppleTV).</li>
+                        <li>Automatyzacja testów API (Postman/JS) oraz analiza logów w
+                            <strong>Snowflake/Kibana</strong>.</li>
+                    </ul>
                 </div>
-                <span class="exp-company">Polkomtel</span>
-                <ul class="exp-bullet">
-                    <li>Kompleksowe testy systemów sprzedażowych (CRM, CMS) dla marek Plus i Cyfrowy Polsat.</li>
-                    <li>Współpraca z Huawei przy walidacji krytycznego systemu <strong>Wyrocznia 2.0</strong>.</li>
-                    <li>Zapewnianie jakości systemów typu Legacy oraz procesów obsługi klienta.</li>
-                </ul>
-            </div>
 
-            <h2>Certyfikaty i Kursy</h2>
-            <div class="cert-grid">
-                <div class="cert-item">
-                    <strong>Google Umiejętności Jutra: AI 3.0</strong>
-                    Strategie AI i automatyzacja procesów (2026)
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">QA Analyst</span>
+                        <span class="exp-date">2017 - 2019</span>
+                    </div>
+                    <span class="exp-company">Polkomtel</span>
+                    <ul class="exp-bullet">
+                        <li>Testowanie systemów CRM/CMS i sprzedażowych dla Plus i Cyfrowy Polsat.</li>
+                        <li>Walidacja systemu <strong>Wyrocznia 2.0</strong> we współpracy z Huawei.</li>
+                    </ul>
                 </div>
-                <div class="cert-item">
-                    <strong>Microsoft Azure AI Fundamentals</strong>
-                    Fundamenty sztucznej inteligencji w chmurze
-                </div>
-                <div class="cert-item">
-                    <strong>GASQ - ISTQB Foundation Level</strong>
-                    Międzynarodowy certyfikat testera oprogramowania
-                </div>
-                <div class="cert-item">
-                    <strong>Cyberbezpieczeństwo (Cisco Academy)</strong>
-                    Podstawy ochrony infrastruktury sieciowej
-                </div>
-            </div>
 
-            <p
-                style="font-size: 10px; color: var(--muted); margin-top: 40px; border-top: 1px solid var(--card); padding-top: 10px;">
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">Tester Akceptacyjny / Biznesowy</span>
+                        <span class="exp-date">2014 - 2017</span>
+                    </div>
+                    <span class="exp-company">Cyfrowy Polsat</span>
+                    <ul class="exp-bullet">
+                        <li>Testy biznesowe systemów <strong>CRM i Billing</strong> oraz rozliczeń klienta.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Wykształcenie</h2>
+                <div class="edu-item">
+                    <strong>Magister Zarządzania Projektami</strong> | WSZiP w Warszawie
+                </div>
+            </section>
+
+            <section>
+                <h2>Certyfikaty i Kursy</h2>
+                <div class="cert-grid">
+                    <div class="cert-item"><strong>Google AI 3.0 (2026)</strong> Optymalizacja procesów AI.</div>
+                    <div class="cert-item"><strong>Azure AI Fundamentals</strong> Podstawy AI w chmurze.</div>
+                    <div class="cert-item"><strong>ISTQB Foundation</strong> Certyfikat testerski.</div>
+                    <div class="cert-item"><strong>Automatyzacja Testów</strong> Coders Lab.</div>
+                </div>
+            </section>
+
+            <p class="footer-rodo">
                 Wyrażam zgodę na przetwarzanie danych osobowych dla potrzeb procesu rekrutacji zgodnie z RODO.
             </p>
-        </div>
+        </main>
     </div>
 </body>
 
