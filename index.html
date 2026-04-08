@@ -4,30 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paweł Gajger - QA & Future Data Scientist</title>
+    <title>
+        <meta name="description"
+            content="Paweł Gajger - Senior QA Analyst z 10-letnim doświadczeniem w AdTech, DAI i SmartTV. Ekspert w TVN Warner Bros. Discovery. Rozwijam się w AI 3.0 i Google Umiejętności Jutra.">
+        <meta name="keywords"
+            content="Paweł Gajger, QA Analyst, AdTech Specialist, Dynamic Ad Insertion, DAI, SmartTV Tester, Google Umiejętności Jutra AI, QA Warszawa, Warner Bros Discovery QA">
+        <meta name="author" content="Paweł Gajger">
+        <link rel="canonical" href="https://pawelgajger.github.io">
+
+        <meta property="og:title" content="Paweł Gajger | Senior QA & AdTech Expert">
+        <meta property="og:description"
+            content="Ekspert od jakości streamingu i technologii reklamowych. Sprawdź moje portfolio stworzone w duchu Vibe Coding.">
+        <meta property="og:image" content="https://pawelgajger.github.io/pawel.png">
+        <meta property="og:url" content="https://pawelgajger.github.io/">
+        <meta property="og:type" content="website">
+
+        <meta name="geo.region" content="PL-MZ">
+        <meta name="geo.placename" content="Warszawa">
+        <meta name="geo.position" content="52.2297;21.0122">
+        <meta name="ICBM" content="52.2297, 21.0122">
+
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Paweł Gajger",
+      "jobTitle": "Senior QA Analyst",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "TVN Warner Bros. Discovery"
+      },
+      "url": "https://pawelgajger.github.io/",
+      "sameAs": [
+        "https://www.linkedin.com/in/pawe%C5%82-gajger-0b94a6161/"
+      ],
+      "knowsAbout": ["Quality Assurance", "AdTech", "Dynamic Ad Insertion", "SmartTV Testing", "Generative AI", "Software Testing"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Warsaw",
+        "addressCountry": "PL"
+      }
+    }
+    </script>
+    </title>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X66L6RDGR"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-3X66L6RDGR');
     </script>
 
     <style>
-        /* --- Zmienne kolorystyczne i Reset --- */
         :root {
             --bg-dark: #0f172a;
             --text-main: #e2e8f0;
             --text-muted: #94a3b8;
             --accent: #38bdf8;
-            /* Cyan */
             --accent-secondary: #818cf8;
-            /* Indigo */
             --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
             --glass-bg: rgba(30, 41, 59, 0.7);
-            /* Półprzezroczyste tło */
             --glass-border: rgba(255, 255, 255, 0.1);
         }
 
@@ -35,7 +72,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
@@ -45,7 +82,6 @@
             overflow-x: hidden;
         }
 
-        /* --- Animowane tło (Aurora) --- */
         body::before {
             content: '';
             position: fixed;
@@ -69,25 +105,6 @@
             }
         }
 
-        /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent);
-        }
-
-        /* --- Layout --- */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -113,7 +130,6 @@
             display: inline-block;
         }
 
-        /* --- Hero Section --- */
         .hero {
             display: flex;
             align-items: center;
@@ -129,21 +145,10 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
-            animation: textShimmer 3s infinite alternate;
-        }
-
-        @keyframes textShimmer {
-            0% {
-                filter: drop-shadow(0 0 0px rgba(56, 189, 248, 0));
-            }
-
-            100% {
-                filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.3));
-            }
         }
 
         .hero-text p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
             margin-bottom: 30px;
             max-width: 600px;
@@ -159,8 +164,6 @@
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(56, 189, 248, 0.2);
-            position: relative;
-            overflow: hidden;
         }
 
         .cta-button:hover {
@@ -168,40 +171,23 @@
             box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
         }
 
-        .cta-button::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .cta-button:hover::after {
-            left: 100%;
-        }
-
         .hero-img-container {
             position: relative;
-            width: 350px;
-            height: 350px;
+            width: 320px;
+            height: 320px;
             flex-shrink: 0;
             animation: float 6s ease-in-out infinite;
         }
 
         @keyframes float {
-            0% {
+
+            0%,
+            100% {
                 transform: translateY(0px);
             }
 
             50% {
                 transform: translateY(-15px);
-            }
-
-            100% {
-                transform: translateY(0px);
             }
         }
 
@@ -210,45 +196,24 @@
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            /* Ramka usunięta, aby zdjęcie bez tła wyglądało naturalnie w poświacie */
-            /* border: 4px solid rgba(255,255,255,0.1); */
-            position: relative;
             z-index: 2;
+            position: relative;
         }
 
         .hero-img-container::before {
             content: '';
             position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
             background: var(--accent-gradient);
             border-radius: 50%;
             z-index: 1;
             opacity: 0.4;
             filter: blur(20px);
-            animation: pulse 3s infinite;
         }
 
-        @keyframes pulse {
-            0% {
-                opacity: 0.4;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.6;
-                transform: scale(1.05);
-            }
-
-            100% {
-                opacity: 0.4;
-                transform: scale(1);
-            }
-        }
-
-        /* --- Glassmorphism Cards --- */
         .skill-card,
         .timeline-item-content {
             background: var(--glass-bg);
@@ -257,7 +222,7 @@
             padding: 30px;
             border-radius: 20px;
             border: 1px solid var(--glass-border);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
         }
 
         .skills-grid {
@@ -269,13 +234,12 @@
         .skill-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
         }
 
         .skill-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
             color: var(--accent);
+            margin-bottom: 15px;
         }
 
         .skill-list {
@@ -283,9 +247,10 @@
         }
 
         .skill-list li {
-            margin-bottom: 10px;
-            padding-left: 25px;
+            margin-bottom: 8px;
+            padding-left: 20px;
             position: relative;
+            font-size: 0.95rem;
         }
 
         .skill-list li::before {
@@ -295,61 +260,35 @@
             color: var(--accent);
         }
 
-        /* --- Timeline (Projekty) --- */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-        }
-
         .timeline-item {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             position: relative;
-            padding-left: 50px;
+            padding-left: 40px;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 25px;
-            width: 16px;
-            height: 16px;
+            top: 10px;
+            width: 12px;
+            height: 12px;
             background: var(--accent);
             border-radius: 50%;
-            box-shadow: 0 0 15px var(--accent);
-            z-index: 2;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 40px;
-            bottom: -60px;
-            width: 2px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 1;
-        }
-
-        .timeline-item:last-child::after {
-            display: none;
+            box-shadow: 0 0 10px var(--accent);
         }
 
         .timeline-date {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--accent);
             font-weight: bold;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             display: block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 60px 0;
-            margin-top: 50px;
+            padding: 40px 0;
             border-top: 1px solid var(--glass-border);
             color: var(--text-muted);
         }
@@ -357,25 +296,12 @@
         footer a {
             color: var(--accent);
             text-decoration: none;
-            transition: color 0.3s;
+            margin: 0 10px;
         }
 
-        footer a:hover {
-            color: #fff;
-            text-shadow: 0 0 10px var(--accent);
-        }
-
-        .brand-link {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin: 10px 0;
-            display: inline-block;
-        }
-
-        /* --- Animacje przy scrollowaniu --- */
         .reveal {
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(30px);
             transition: all 0.8s ease-out;
         }
 
@@ -384,55 +310,19 @@
             transform: translateY(0);
         }
 
-        /* --- Responsywność --- */
         @media (max-width: 768px) {
             .hero {
                 flex-direction: column-reverse;
                 text-align: center;
-                justify-content: center;
-                padding-top: 40px;
-            }
-
-            .hero-img-container {
-                width: 250px;
-                height: 250px;
             }
 
             .hero-text h1 {
                 font-size: 2.5rem;
             }
 
-            h2 {
-                border: none;
-                border-bottom: 3px solid var(--accent);
-                display: inline-block;
-                padding-bottom: 10px;
-            }
-
-            .timeline-item {
-                padding-left: 30px;
-            }
-
-            .timeline-item::before {
-                left: -4px;
-                width: 12px;
-                height: 12px;
-            }
-
-            .timeline-item::after {
-                left: 1px;
-            }
-
-            .hero-text {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                max-width: 100%;
-            }
-
-            .hero-text p {
-                max-width: 100%;
+            .hero-img-container {
+                width: 240px;
+                height: 240px;
             }
         }
     </style>
@@ -444,14 +334,16 @@
         <header class="hero">
             <div class="hero-text reveal">
                 <p
-                    style="color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 10px;">
+                    style="color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 10px;">
                     Cześć, nazywam się</p>
                 <h1>Paweł Gajger</h1>
                 <p>
-                    <strong>Senior QA Analyst | Future Data Scientist</strong><br>
-                    Ekspert rozwiązań VOD, OTT i DAI z 10-letnim stażem w pełnym cyklu SDLC.
-                    Łączę inżynierię jakości z Data Science, wykorzystując AI i Vibe Coding, by optymalizować procesy i
-                    redefiniować standardy w IT.
+                    <strong>Senior QA Analyst | AdTech & Streaming Specialist</strong><br><br>
+                    Analityk QA z ponad 10-letnim doświadczeniem w branży mediów i telekomunikacji (TVN Warner Bros.
+                    Discovery).
+                    Ekspert w obszarze <strong>AdTech</strong> oraz <strong>Dynamic Ad Insertion (DAI)</strong>.
+                    Skutecznie wdrażam narzędzia <strong>AI</strong> oraz automatyzację w Playwright i Postman,
+                    by optymalizować procesy i skracać Time-to-Market.
                 </p>
                 <a href="mailto:pawelgajger@gmail.com" class="cta-button">Skontaktuj się ze mną</a>
             </div>
@@ -465,17 +357,17 @@
             <h2>Quality Driven, AI Powered</h2>
             <div
                 style="background: var(--glass-bg); padding: 30px; border-radius: 20px; border: 1px solid var(--glass-border);">
-                <p style="color: var(--text-muted); margin-bottom: 20px;">
-                    Od blisko 7 lat jestem związany z <strong>TVN Warner Bros. Discovery</strong>, gdzie dbam o jakość
-                    serwisów streamingowych takich jak Player.pl, TVN24+ i MAX.
-                    Posiadam szeroką wiedzę w zakresie testów manualnych, automatyzacji oraz technologii AdTech w tym
-                    Dynamic Ad
-                    Insertion (DAI).
+                <p style="color: var(--text-main); margin-bottom: 15px;">
+                    Od ponad 7 lat dbam o jakość platform streamingowych (Player.pl, MAX, TVN24 GO) w <strong>TVN Warner
+                        Bros. Discovery</strong>[cite: 27].
+                    Specjalizuję się w technologiach reklamowych (AdTech SDK) oraz implementacji systemów DAI.
                 </p>
                 <p style="color: var(--text-muted);">
-                    Wierzę, że przyszłość IT należy do połączenia solidnej inżynierii z AI. Dlatego aktualnie studiuję
-                    <strong>Data Science</strong> i rozwijam się w Pythonie oraz analizie danych, aby tworzyć nową
-                    jakość w oprogramowaniu.
+                    Wierzę, że przyszłość QA to symbioza inżynierii z Generatywną AI. Obecnie rozwijam się w obszarze
+                    <strong>AI-Assisted Testing</strong>,
+                    uczestnicząc w prestiżowym programie <strong>Google Umiejętności Jutra: AI 3.0</strong> oraz kursie
+                    <strong>Narzędziownik AI</strong>.
+                    Wykorzystuję AI do projektowania scenariuszy i optymalizacji codziennej pracy.
                 </p>
             </div>
         </section>
@@ -485,35 +377,35 @@
             <div class="skills-grid">
 
                 <div class="skill-card">
-                    <h3>🔍 QA Expertise</h3>
+                    <h3>📡 QA & OTT Expertise</h3>
                     <ul class="skill-list">
-                        <li>Testy serwisów VOD & Streaming</li>
+                        <li>Testy serwisów VOD & Streaming (MAX, Player)</li>
                         <li>Specjalizacja: <strong>DAI</strong> (Dynamic Ad Insertion)</li>
+                        <li>Platformy: SmartTV (Tizen, WebOS, AndroidTV)</li>
                         <li>Mobile: Android / iOS / PWA</li>
-                        <li>SmartTV: Tizen, WebOS, AndroidTV</li>
-                        <li>API Testing (Postman)</li>
+                        <li>API Testing (Postman & JavaScript)</li>
                     </ul>
                 </div>
 
                 <div class="skill-card">
-                    <h3>🤖 AI & Data Science</h3>
+                    <h3>🤖 AI Innovation</h3>
                     <ul class="skill-list">
-                        <li>Studia: Data Science z AI (WSB Merito)</li>
-                        <li>Python (Analiza danych)</li>
-                        <li>Vibe Coding (AI-Assisted Dev)</li>
-                        <li>SQL & Snowflake</li>
-                        <li>Kibana & Analiza logów</li>
+                        <li><strong>Google Umiejętności Jutra: AI 3.0</strong></li>
+                        <li>Narzędziownik AI (Automatyzacja pracy) </li>
+                        <li>Prompt Engineering w procesach QA</li>
+                        <li>Vibe Coding (AI-Assisted Development)</li>
+                        <li><strong>Azure AI Fundamentals</strong> (Certyfikat) </li>
                     </ul>
                 </div>
 
                 <div class="skill-card">
-                    <h3>💻 Web & Tools</h3>
+                    <h3>💻 Tech Stack & Tools</h3>
                     <ul class="skill-list">
-                        <li>Tworzenie stron WWW</li>
-                        <li>HTML / CSS / JavaScript</li>
-                        <li>JIRA / Confluence</li>
-                        <li>Charles Proxy / ProxyMan</li>
-                        <li>Git / DevTools</li>
+                        <li>Automatyzacja: Playwright / Postman</li>
+                        <li>Debugowanie: Charles Proxy / ProxyMan</li>
+                        <li>Analiza danych: SQL / Snowflake / Kibana</li>
+                        <li>Web: HTML / CSS / Podstawy JS & Python</li>
+                        <li>Narzędzia: JIRA / Confluence / SauceLabs</li>
                     </ul>
                 </div>
 
@@ -525,13 +417,12 @@
             <div class="timeline">
 
                 <div class="timeline-item">
-                    <span class="timeline-date">2024 – obecnie</span>
+                    <span class="timeline-date">2024 – OBECNIE</span>
                     <div class="timeline-item-content">
                         <h3>Wdrożenia DAI: MAX & Operatorzy</h3>
                         <p style="color: var(--text-muted);">
-                            Implementacja Dynamic Ad Insertion na platformie MAX w Polsce. <br><br>
-                            Współpraca z <strong>WP, Canal+, Play</strong> i innymi operatorami nad wdrożeniem DAI na
-                            kanałach TVN oraz ich autorskich platformach u tychże operatorów.
+                            Implementacja Dynamic Ad Insertion na platformie <strong>MAX</strong> w Polsce.
+                            Współpraca z operatorami (Canal+, Play, WP) nad integracją kanałów TVN.
                         </p>
                     </div>
                 </div>
@@ -539,66 +430,39 @@
                 <div class="timeline-item">
                     <span class="timeline-date">2024</span>
                     <div class="timeline-item-content">
-                        <h3>Wdrożenie seriwsu MAX w Polsce</h3>
-                        <p style="color: var(--text-muted);">Kompleksowe testy reklamowe przy wdrożeniu platformy MAX w
-                            Polsce.
-                        </p>
+                        <h3>Launch serwisu MAX w Polsce</h3>
+                        <p style="color: var(--text-muted);">Kompleksowe testy regresyjne i reklamowe przy migracji
+                            użytkowników do nowej platformy.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="timeline-date">2019 – obecnie</span>
+                    <span class="timeline-date">2019 – 2024</span>
                     <div class="timeline-item-content">
-                        <h3>Rozwój Player.pl</h3>
-                        <p style="color: var(--text-muted);">Kompleksowe testy (Web, Mobile, SmartTV) oraz migracja
-                            serwisu z on-premise do chmury AWS. Od 2022 testy w ramach AdTech m.in. implementacja DAI w
-                            serwisach streamingowych grupy TVN.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">2019</span>
-                    <div class="timeline-item-content">
-                        <h3>TVN24GO</h3>
-                        <p style="color: var(--text-muted);">Wdrożenie, utrzymanie i rozwój serwisu informacyjnego
-                            wideo.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">2016 – 2019</span>
-                    <div class="timeline-item-content">
-                        <h3>Systemy Sprzedażowe (Polkomtel)</h3>
-                        <p style="color: var(--text-muted);">Testowanie systemów CRM, Legacy oraz współpraca przy
-                            systemie Wyrocznia 2.0.</p>
+                        <h3>Rozwój Player.pl & TVN24 GO</h3>
+                        <p style="color: var(--text-muted);">Migracja do chmury AWS, testy aplikacji SmartTV oraz
+                            wdrożenie pierwszych systemów DAI w grupie TVN.</p>
                     </div>
                 </div>
 
             </div>
         </section>
-
     </div>
 
     <footer>
-        <p>© 2025 Paweł Gajger. Stworzone w duchu Vibe Coding.</p>
-
+        <p>© 2026 Paweł Gajger. Stworzone w duchu Vibe Coding.</p>
         <p>
-            <a href="https://www.linkedin.com/in/pawe%C5%82-gajger-0b94a6161" target="_blank"
-                rel="noopener noreferrer">LinkedIn</a> |
-            <a href="mailto:pawelgajger@gmail.com">pawelgajger@gmail.com</a>
+            <a href="https://www.linkedin.com/in/pawe%C5%82-gajger-0b94a6161" target="_blank">LinkedIn</a> |
+            <a href="mailto:pawelgajger@gmail.com">E-mail</a>
         </p>
-
     </footer>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (entry.isIntersecting) { entry.target.classList.add('active'); }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
