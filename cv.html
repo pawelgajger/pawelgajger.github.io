@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Paweł Gajger - Senior QA Analyst</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --accent: #38bdf8;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+        }
+
+        body {
+            background: #334155;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+            margin: 0;
+        }
+
+        .cv-page {
+            background: var(--bg);
+            width: 210mm;
+            min-height: 297mm;
+            padding: 15mm;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            z-index: 2;
+        }
+
+        .photo-container {
+            width: 180px;
+            height: 180px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .photo-container::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            background: var(--gradient);
+            border-radius: 50%;
+            opacity: 0.3;
+            filter: blur(10px);
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--card);
+            position: relative;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 0;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            border-left: 4px solid var(--accent);
+            padding-left: 12px;
+            margin-top: 35px;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            font-size: 13px;
+        }
+
+        .skill-list li {
+            margin-bottom: 10px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li strong {
+            color: var(--text);
+            margin-right: 5px;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            color: var(--accent);
+            margin-right: 8px;
+        }
+
+        /* Main Content */
+        .main-content {
+            z-index: 2;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--card);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .summary-text {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--muted);
+            text-align: justify;
+        }
+
+        .summary-text strong {
+            color: var(--text);
+        }
+
+        .experience-item {
+            margin-bottom: 35px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .exp-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .exp-date {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .exp-company {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .exp-bullet {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exp-bullet li {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 6px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .exp-bullet li::after {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .cert-item {
+            background: var(--card);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .cert-item strong {
+            display: block;
+            color: var(--accent);
+        }
+
+        .ai-label {
+            background: var(--gradient);
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 9px;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .cv-page {
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+                padding: 10mm;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-page">
+        <div class="sidebar">
+            <div class="photo-container">
+                <img src="pawel.png" alt="Paweł Gajger" class="photo-img">
+            </div>
+            <h1>Paweł Gajger</h1>
+            <div class="tagline">Senior QA Analyst | AdTech Expert</div>
+
+            <h3>Kontakt</h3>
+            <ul class="skill-list">
+                <li>📞 501 169 449</li>
+                <li>✉️ pawelgajger@gmail.com</li>
+                <li>📍 Warszawa, PL</li>
+                <li>🔗 linkedin.com/in/paweł-gajger</li>
+            </ul>
+
+            <h3>Ekspertyza Tech</h3>
+            <ul class="skill-list">
+                <li>📺 <strong>SmartTV:</strong> Tizen, WebOS, AndroidTV, AppleTV, Chromecast</li>
+                <li>📊 <strong>AdTech:</strong> DAI, VAST/VMAP, SDK</li>
+                <li>📱 <strong>Mobile:</strong> Android, iOS (SauceLabs)</li>
+                <li>🛠️ <strong>Tools:</strong> Playwright, Postman, Charles, ProxyMan, Snowflake, Kibana</li>
+            </ul>
+
+            <h3>AI Skills <span class="ai-label">2026</span></h3>
+            <ul class="skill-list">
+                <li>🤖 <strong>Google AI 3.0</strong></li>
+                <li>🦾 <strong>Narzędziownik AI</strong></li>
+                <li>☁️ <strong>Azure AI Fundamentals</strong></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h2>Podsumowanie</h2>
+            <p class="summary-text">
+                Doświadczony <strong>Analityk QA z 10-letnim stażem</strong> w branży IT, specjalizujący się w sektorze
+                mediów i telekomunikacji. Ekspert w niszowym obszarze <strong>AdTech</strong> oraz technologii
+                <strong>Dynamic Ad Insertion (DAI)</strong>. Posiadam bogate doświadczenie w certyfikacji aplikacji
+                wideo na systemy <strong>SmartTV</strong> oraz urządzenia mobilne. Aktywnie wdrażam narzędzia
+                Generatywnej AI do optymalizacji procesów testowych, uczestnicząc w elitarnych programach rozwojowych
+                Google.
+            </p>
+
+            <h2>Doświadczenie</h2>
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span class="exp-title">Senior QA Analyst</span>
+                    <span class="exp-date">2019 - OBECNIE</span>
+                </div>
+                <span class="exp-company">TVN | Warner Bros. Discovery</span>
+                <ul class="exp-bullet">
+                    <li>Zapewnianie jakości platform <strong>Player.pl oraz MAX</strong> na polskim rynku.</li>
+                    <li>Testy integracyjne <strong>AdTech SDK</strong> oraz weryfikacja implementacji DAI u operatorów.
+                    </li>
+                    <li>Certyfikacja i testy aplikacji na szeroką gamę systemów <strong>SmartTV</strong> oraz Mobile.
+                    </li>
+                    <li>Analiza Big Data i logów systemowych przy użyciu <strong>Snowflake, Kibana i SQL</strong>.</li>
+                    <li>Automatyzacja testów API w środowisku Postman z wykorzystaniem JavaScript.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span class="exp-title">QA Analyst</span>
+                    <span class="exp-date">2017 - 2019</span>
+                </div>
+                <span class="exp-company">Polkomtel</span>
+                <ul class="exp-bullet">
+                    <li>Kompleksowe testy systemów sprzedażowych (CRM, CMS) dla marek Plus i Cyfrowy Polsat.</li>
+                    <li>Współpraca z Huawei przy walidacji krytycznego systemu <strong>Wyrocznia 2.0</strong>.</li>
+                    <li>Zapewnianie jakości systemów typu Legacy oraz procesów obsługi klienta.</li>
+                </ul>
+            </div>
+
+            <h2>Certyfikaty i Kursy</h2>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <strong>Google Umiejętności Jutra: AI 3.0</strong>
+                    Strategie AI i automatyzacja procesów (2026)
+                </div>
+                <div class="cert-item">
+                    <strong>Microsoft Azure AI Fundamentals</strong>
+                    Fundamenty sztucznej inteligencji w chmurze
+                </div>
+                <div class="cert-item">
+                    <strong>GASQ - ISTQB Foundation Level</strong>
+                    Międzynarodowy certyfikat testera oprogramowania
+                </div>
+                <div class="cert-item">
+                    <strong>Cyberbezpieczeństwo (Cisco Academy)</strong>
+                    Podstawy ochrony infrastruktury sieciowej
+                </div>
+            </div>
+
+            <p
+                style="font-size: 10px; color: var(--muted); margin-top: 40px; border-top: 1px solid var(--card); padding-top: 10px;">
+                Wyrażam zgodę na przetwarzanie danych osobowych dla potrzeb procesu rekrutacji zgodnie z RODO.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
